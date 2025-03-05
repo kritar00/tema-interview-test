@@ -1,18 +1,22 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  compatibilityDate: '2024-11-01',
+  compatibilityDate: "2024-11-01",
   devtools: { enabled: true },
-  modules: ['@nuxtjs/i18n'],
+  modules: ["@nuxtjs/i18n", "@nuxtjs/tailwindcss", "shadcn-nuxt"],
   i18n: {
     locales: [
-      { code: 'en', iso: 'en-US', name: 'English', file: 'en.json' },
-      { code: 'vi', iso: 'vi-VN', name: 'Vietnamese', file: 'vi.json' }
+      { code: "en", iso: "en-US", name: "English", file: "en.json" },
+      { code: "vi", iso: "vi-VN", name: "Vietnamese", file: "vi.json" },
     ],
-    defaultLocale: 'en',
+    defaultLocale: "en",
     lazy: true,
-    langDir: '../locales/',
+    langDir: "../locales/",
     detectBrowserLanguage: {
-      fallbackLocale: 'en'
-    }
-  }
-})
+      fallbackLocale: "en",
+    },
+  },
+  shadcn: {
+    prefix: "",
+    componentDir: "./components/shared",
+  },
+});
