@@ -124,4 +124,8 @@
   h6 {
     font-family: "Playfair Display", serif;
   }
+
+  .content-max-width {
+    @apply w-full md:max-w-[1160px] mx-auto;
+  }
 }

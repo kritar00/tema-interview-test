@@ -8,7 +8,7 @@
       <div class="content">
         <h1 class="title">We're Getting Ready</h1>
 
-        <div>
+        <div class="flex flex-col items-center justify-center">
           <AboutUsCountdown />
 
           <div class="email-signup mt-12">
@@ -82,7 +82,7 @@ const { t } = useI18n();
 }
 
 .email-signup {
-  @apply mb-5;
+  @apply mb-5 max-w-[560px];
 }
 
 .email-signup button {

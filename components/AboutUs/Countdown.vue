@@ -1,22 +1,22 @@
 <template>
   <div class="countdown">
     <div class="timer">
-      <span>{{ days }}</span
+      <span class="md:mb-2">{{ days }}</span
       ><span class="text-xs">Days</span>
     </div>
     <span class="separator">:</span>
     <div class="timer">
-      <span>{{ hours }}</span
+      <span class="md:mb-2">{{ hours }}</span
       ><span class="text-xs">Hours</span>
     </div>
     <span class="separator">:</span>
     <div class="timer">
-      <span>{{ minutes }}</span
+      <span class="md:mb-2">{{ minutes }}</span
       ><span class="text-xs">Minutes</span>
     </div>
     <span class="separator">:</span>
     <div class="timer">
-      <span>{{ seconds }}</span
+      <span class="md:mb-2">{{ seconds }}</span
       ><span class="text-xs">Seconds</span>
     </div>
   </div>
@@ -59,7 +59,7 @@ const startCountdown = () => {
 .countdown {
   font-family: "Playfair Display", serif;
   box-shadow: 0px 4px 10px 0px #00000040;
-  @apply flex justify-center items-center gap-x-1 text-black bg-blue-50 p-5 rounded-lg;
+  @apply flex justify-center items-center gap-x-1 md:gap-x-[52px] text-black bg-blue-50 p-5 rounded-lg;
 }
 
 .countdown .timer {
