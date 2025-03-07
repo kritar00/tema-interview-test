@@ -1,6 +1,6 @@
 <template>
   <section class="about-us-content content-max-width">
-    <div class="flex-1 px-4">
+    <div class="sm:w-1/2 px-4 shrink-0">
       <div class="main-content">
         <div class="title">
           <h2 class="text-[40px]">{{ t("about_us.main_content.title") }}</h2>
@@ -38,8 +38,12 @@
           />
         </div>
         <div class="flex flex-col gap-y-4">
-          <p class="text-2xl font-bold">{{ t("about_us.overview.work_hours.title") }}</p>
-          <p class="text-[#757575] text-sm">{{ t("about_us.overview.work_hours.description") }}</p>
+          <p class="text-2xl font-bold">
+            {{ t("about_us.overview.work_hours.title") }}
+          </p>
+          <p class="text-[#757575] text-sm">
+            {{ t("about_us.overview.work_hours.description") }}
+          </p>
         </div>
       </div>
       <div class="info-item">
@@ -55,8 +59,12 @@
           />
         </div>
         <div class="flex flex-col gap-y-4">
-          <p class="text-2xl font-bold">{{ t("about_us.overview.design.title") }}</p>
-          <p class="text-[#757575] text-sm">{{ t("about_us.overview.design.description") }}</p>
+          <p class="text-2xl font-bold">
+            {{ t("about_us.overview.design.title") }}
+          </p>
+          <p class="text-[#757575] text-sm">
+            {{ t("about_us.overview.design.description") }}
+          </p>
         </div>
       </div>
       <div class="info-item">
@@ -72,8 +80,12 @@
           />
         </div>
         <div class="flex flex-col gap-y-4">
-          <p class="text-2xl font-bold">{{ t("about_us.overview.team.title") }}</p>
-          <p class="text-[#757575] text-sm">{{ t("about_us.overview.team.description") }}</p>
+          <p class="text-2xl font-bold">
+            {{ t("about_us.overview.team.title") }}
+          </p>
+          <p class="text-[#757575] text-sm">
+            {{ t("about_us.overview.team.description") }}
+          </p>
         </div>
       </div>
     </div>
@@ -115,7 +127,7 @@ const { t } = useI18n();
 }
 
 .additional-info {
-  @apply flex-1 flex flex-col gap-y-10 px-4 md:px-[75px] md:py-28 py-10 bg-gray-200;
+  @apply sm:w-1/2 flex flex-col gap-y-10 px-4 md:px-[75px] md:py-28 py-10 bg-gray-200;
 }
 
 .info-item {

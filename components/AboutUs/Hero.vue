@@ -18,7 +18,7 @@
             </p>
             <div class="relative">
               <Input
-                class="bg-white p-7 text-black"
+                class="bg-white h-14 text-black"
                 :placeholder="t('placeholders.email')"
               />
               <button><ArrowRight color="black" /></button>
@@ -66,7 +66,7 @@ const { t } = useI18n();
 
 <style scoped>
 .hero-container {
-  @apply relative w-full h-[606px] bg-[#1e1e1e] overflow-hidden;
+  @apply relative w-full h-[606px] lg:h-screen bg-[#1e1e1e] overflow-hidden;
 }
 
 .hero-background img {
@@ -78,7 +78,7 @@ const { t } = useI18n();
 }
 
 .title {
-  @apply text-[40px] font-[900] leading-[50px] mb-9;
+  @apply text-[40px] lg:text-[80px] lg:leading-[120px] font-[900] leading-[50px] mb-9;
 }
 
 .email-signup {
@@ -91,7 +91,7 @@ const { t } = useI18n();
 
 .shape-wrapper {
   position: relative !important;
-  z-index: 50;
+  z-index: 20;
 }
 
 .shape {
@@ -107,11 +107,10 @@ const { t } = useI18n();
 }
 
 .wizard {
-  @apply h-[210px] w-full relative;
+  @apply h-64 w-full relative lg:absolute lg:right-1/2 lg:bottom-5;
 }
 
 .wizard > img {
-  @apply absolute bottom-8 right-1/2 translate-x-[70%] w-[315px];
-  z-index: 50;
+  @apply absolute bottom-10 right-1/2 translate-x-[70%] w-[315px] z-30;
 }
 </style>

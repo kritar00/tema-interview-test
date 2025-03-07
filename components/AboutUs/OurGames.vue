@@ -1,14 +1,13 @@
 <template>
-  <div class="grid-container">
-    <Card
-      v-for="(game, index) in games"
-      :key="index"
-      :title="game.title"
-      :description="game.description"
-      :image="game.image"
-      :class="{ 'even-column': isEvenColumn(index) }"
-    />
-  </div>
+  <template>
+    <div class="grid-container">
+      <div v-for="(col, colIndex) in columns" :key="colIndex"
+        :class="['column', { 'even-column': colIndex % 2 === 1 }]">
+        <Card v-for="game in col" :key="game.title" :title="game.title" :description="game.description"
+          :image="game.image" />
+      </div>
+    </div>
+  </template>
 </template>
 
 <script lang="ts" setup>
@@ -77,20 +76,28 @@ const games = [
   },
 ];
 
+const numCardsPerColumn = ref(3);
+const numColumns = computed(() => Math.ceil(games.length / numCardsPerColumn.value));
+const columns = ref<any[]>([]);
+for (let i = 0; i < numColumns.value; i++) {
+  const start = i * numCardsPerColumn.value;
+  const end = start + numCardsPerColumn.value;
+  columns.value.push(games.slice(start, end));
+}
+
 const isMobile = ref(window?.innerWidth < 520);
 
-// Function to determine if a card should have the even-column class
-const isEvenColumn = (index: number) => {
-  if (isMobile.value) {
-    // Mobile: Cards 7-12 (indices 6-11) are "even-column"
-    return index >= 6;
-  } else {
-    // Desktop: Groups of 3, where the second group in each pair gets even-column
-    return Math.floor(index / 3) % 2 === 1;
+watch(() => isMobile.value, () => {
+  console.log('I ran');
+  numCardsPerColumn.value = isMobile.value ? 6 : 3;
+  columns.value = [];
+  for (let i = 0; i < numColumns.value; i++) {
+    const start = i * numCardsPerColumn.value;
+    const end = start + numCardsPerColumn.value;
+    columns.value.push(games.slice(start, end));
   }
-};
+})
 
-// Update isMobile on window resize
 const handleResize = () => {
   isMobile.value = window?.innerWidth < 520;
 };
@@ -107,18 +114,17 @@ onUnmounted(() => {
 
 <style scoped>
 .grid-container {
-  display: grid;
-  grid-auto-flow: column;
-  grid-template-rows: repeat(6, 1fr);
-  gap: 20px;
+  display: flex;
+  flex-direction: row;
+  gap: 1.5rem;
   justify-content: center;
   @apply px-4;
 }
 
-@media (min-width: 520px) {
-  .grid-container {
-    grid-template-rows: repeat(3, 1fr);
-  }
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
 .even-column {
