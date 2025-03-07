@@ -96,6 +96,7 @@ const handleResize = () => {
 };
 
 onMounted(() => {
+  isMobile.value = window?.innerWidth < 520;
   window.addEventListener("resize", handleResize);
 });
 
@@ -109,7 +110,7 @@ onUnmounted(() => {
   display: grid;
   grid-auto-flow: column;
   grid-template-rows: repeat(6, 1fr);
-  gap: 1.5rem;
+  gap: 20px;
   justify-content: center;
   @apply px-4;
 }

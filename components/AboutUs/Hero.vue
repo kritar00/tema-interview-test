@@ -74,7 +74,7 @@ const { t } = useI18n();
 }
 
 .content {
-  @apply absolute top-1/2 left-1/2 transform translate-x-[-50%] translate-y-[-50%] text-center text-white z-10;
+  @apply absolute top-1/2 left-1/2 transform translate-x-[-50%] translate-y-[-50%] text-center text-white z-10 mt-12;
 }
 
 .title {
